@@ -1,0 +1,13 @@
+@import "./scss/utils/variable.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "ubuntu";
+  background-color: $primary;
+  color: $secondary;
+}
