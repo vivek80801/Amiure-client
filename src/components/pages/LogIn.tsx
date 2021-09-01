@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { IState } from "../../store";
 import { login } from "../../actions/login";
+import loginStyle from "../../scss/components/pages/login.module.scss";
 
 const LogIn: React.FC = (): JSX.Element => {
   const [username, setUsername] = React.useState("");
@@ -14,6 +15,7 @@ const LogIn: React.FC = (): JSX.Element => {
     <>
       {state[0].msg === "dashboard" && <Redirect to="/dashboard" />}
       <form
+        className={loginStyle.desktop}
         onSubmit={(e) => {
           e.preventDefault();
           return dispatch(login(username, password));

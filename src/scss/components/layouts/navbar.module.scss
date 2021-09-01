@@ -1,0 +1,28 @@
+@import "../../utils/variable.scss";
+
+.desktop {
+  padding: 1rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+      padding: 1rem;
+      list-style: none;
+      a {
+        padding: 1rem;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 0.75rem;
+        &:hover {
+          background-color: #333;
+        }
+      }
+    }
+  }
+}

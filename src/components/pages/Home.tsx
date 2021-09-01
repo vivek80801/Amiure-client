@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../../actions/signup";
+import home from "../../scss/components/pages/home.module.scss";
 
 const Home: React.FC = (): JSX.Element => {
   const [username, setUsername] = React.useState("");
@@ -15,6 +16,7 @@ const Home: React.FC = (): JSX.Element => {
   return (
     <>
       <form
+        className={home.desktop}
         onSubmit={(e) => {
           e.preventDefault();
           return dispatch(signup(username, email, password));
