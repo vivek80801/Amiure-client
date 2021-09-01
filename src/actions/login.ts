@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
 import { LOG_IN } from "../reducers/types";
+import { IAuthAction } from "../reducers/authReducer";
 
 export const login = (username: string, password: string) => {
   return async (dispatch: Dispatch) => {
@@ -14,7 +15,7 @@ export const login = (username: string, password: string) => {
           body: JSON.stringify({ username: username, password: password }),
         });
         const data: { msg: string } = await res.json();
-        return dispatch(loginUser(data.msg));
+        return dispatch(loginUser(data.msg, res.url.split("=")[1]));
       }
     } catch (err) {
       console.log(err);
@@ -22,9 +23,9 @@ export const login = (username: string, password: string) => {
   };
 };
 
-export const loginUser = (msg: string) => {
+export const loginUser = (msg: string, id: string): IAuthAction => {
   return {
     type: LOG_IN,
-    payload: { msg: msg },
+    payload: { msg: msg, id: id },
   };
 };
