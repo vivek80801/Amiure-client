@@ -13,7 +13,7 @@ const LogIn: React.FC = (): JSX.Element => {
 
   return (
     <>
-      {state[0].msg === "dashboard" && <Redirect to="/dashboard" />}
+      {state.auth.msg === "dashboard" && <Redirect to="/dashboard" />}
       <form
         className={loginStyle.desktop}
         onSubmit={(e) => {

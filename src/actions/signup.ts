@@ -24,7 +24,7 @@ export const signup = (username: string, email: string, password: string) => {
         }),
       });
       const data: { msg: string } = await res.json();
-      return dispatch(signupUser(JSON.parse(data.msg)));
+      return dispatch(signupUser(data.msg));
     } catch (err) {
       console.log(err);
     }

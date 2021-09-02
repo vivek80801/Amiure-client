@@ -1,0 +1,11 @@
+@import "../../utils/_variable.scss";
+
+.desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: center;
+  input {
+    padding: 1rem;
+  }
+}

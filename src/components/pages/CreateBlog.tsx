@@ -1,38 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { IState } from "../../store";
+import { createBlog } from "../../actions/createblog";
+import createblogclass from "../../scss/components/pages/createblog.module.scss";
 
 const CreateBlog: React.FC = (): JSX.Element => {
   const [title, setTitle] = React.useState("");
   const [discreaption, setDiscreaption] = React.useState("");
   const state = useSelector((state: IState) => state);
+  const dispatch = useDispatch();
   return (
     <>
-      {state[0].username.length > 0 && (
+      {state.auth.username.length > 0 && (
         <form
+          className={createblogclass.desktop}
           onSubmit={(e) => {
             e.preventDefault();
-            (async () => {
-              try {
-                const res = await fetch(
-                  "http://localhost:5000/blog/createblog",
-                  {
-                    method: "POST",
-                    headers: {
-                      "content-type": "application/json",
-                    },
-                    body: JSON.stringify({
-                      title: title,
-                      discreaption: discreaption,
-                    }),
-                  }
-                );
-                const data = res.json();
-                console.log(data);
-              } catch (err) {
-                console.log(err);
-              }
-            })();
+            return dispatch(createBlog(title, discreaption));
           }}
         >
           <input

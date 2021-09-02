@@ -7,6 +7,7 @@ import Default from "./components/pages/Default";
 import LogIn from "./components/pages/LogIn";
 import Dashboard from "./components/pages/Dashboard";
 import CreateBlog from "./components/pages/CreateBlog";
+import Blogs from "./components/pages/Blogs";
 
 const App: React.FC = (): JSX.Element => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = (): JSX.Element => {
         <Route exact path={"/login"} component={LogIn} />
         <Route exact path={"/dashboard"} component={Dashboard} />
         <Route exact path={"/createblog"} component={CreateBlog} />
+        <Route exact path={"/blogs"} component={Blogs} />
         <Route component={Default} />
       </Switch>
     </>

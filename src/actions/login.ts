@@ -14,8 +14,16 @@ export const login = (username: string, password: string) => {
           },
           body: JSON.stringify({ username: username, password: password }),
         });
-        const data: { msg: string } = await res.json();
-        return dispatch(loginUser(data.msg, res.url.split("=")[1]));
+        const data: {
+          msg: string;
+          user: {
+            username: string;
+            email: string;
+          };
+        } = await res.json();
+        return dispatch(
+          loginUser(data.msg, data.user.username, data.user.email)
+        );
       }
     } catch (err) {
       console.log(err);
@@ -23,9 +31,13 @@ export const login = (username: string, password: string) => {
   };
 };
 
-export const loginUser = (msg: string, id: string): IAuthAction => {
+export const loginUser = (
+  msg: string,
+  username: string,
+  email: string
+): IAuthAction => {
   return {
     type: LOG_IN,
-    payload: { msg: msg, id: id },
+    payload: { msg: msg, username: username, email: email },
   };
 };
