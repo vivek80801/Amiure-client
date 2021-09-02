@@ -7,7 +7,7 @@ export const login = (username: string, password: string) => {
     try {
       if (process.env.NODE_ENV === "production") {
       } else {
-        const res = await fetch("http://localhost:5000/login", {
+        const res = await fetch("/api/login", {
           method: "POST",
           headers: {
             "content-type": "application/json",

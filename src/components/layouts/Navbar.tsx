@@ -17,6 +17,9 @@ const Navbar: React.FC = (): JSX.Element => {
           <li>
             <Link to="/dashboard">dashboard</Link>
           </li>
+          <li>
+            <Link to="/createblog">create blog</Link>
+          </li>
         </ul>
       </nav>
     </>
