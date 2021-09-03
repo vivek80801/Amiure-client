@@ -14,11 +14,13 @@
     li {
       padding: 1rem;
       list-style: none;
-      a {
+      a,
+      span {
         padding: 1rem;
         color: #fff;
         text-decoration: none;
         border-radius: 0.75rem;
+        cursor: pointer;
         &:hover {
           background-color: #333;
         }

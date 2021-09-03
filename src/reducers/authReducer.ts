@@ -32,7 +32,10 @@ export const authReducer = (
       return {
         username: "",
         email: "",
-        msg: action.payload.msg,
+        msg:
+          action.payload.msg === "ok"
+            ? "Now, you can log in"
+            : action.payload.msg,
       };
 
     case "LOG_IN":

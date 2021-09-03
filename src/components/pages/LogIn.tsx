@@ -13,28 +13,35 @@ const LogIn: React.FC = (): JSX.Element => {
 
   return (
     <>
-      {state.auth.msg === "dashboard" && <Redirect to="/dashboard" />}
-      <form
-        className={loginStyle.desktop}
-        onSubmit={(e) => {
-          e.preventDefault();
-          return dispatch(login(username, password));
-        }}
-      >
-        <input
-          type="text"
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Enter your username"
-          required
-        />
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter your password"
-          required
-        />
-        <input type="submit" value="login" />
-      </form>
+      {state.auth.msg === "dashboard" ? (
+        <Redirect to="/dashboard" />
+      ) : (
+        <>
+          <form
+            className={loginStyle.desktop}
+            onSubmit={(e) => {
+              e.preventDefault();
+              return dispatch(login(username, password));
+            }}
+          >
+            <h1>{state.auth.msg}</h1>
+            <h2>log in</h2>
+            <input
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter your username"
+              required
+            />
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required
+            />
+            <input type="submit" value="login" />
+          </form>
+        </>
+      )}
     </>
   );
 };

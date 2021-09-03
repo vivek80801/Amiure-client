@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { IState } from "../../store";
 import { signup } from "../../actions/signup";
 import home from "../../scss/components/pages/home.module.scss";
 
@@ -7,14 +8,12 @@ const Home: React.FC = (): JSX.Element => {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [message, setMessage] = React.useState("");
-  const [error, setError] = React.useState<any>("");
 
+  const state = useSelector((state: IState) => state);
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  console.log("state => " + JSON.stringify(state));
   return (
     <>
+      <h1>{state.auth.msg}</h1>
       <form
         className={home.desktop}
         onSubmit={(e) => {
@@ -22,6 +21,7 @@ const Home: React.FC = (): JSX.Element => {
           return dispatch(signup(username, email, password));
         }}
       >
+        <h2>sign up</h2>
         <input
           type="text"
           onChange={(e) => setUsername(e.target.value)}

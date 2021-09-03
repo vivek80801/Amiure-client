@@ -8,10 +8,14 @@ const Dashboard: React.FC = (): JSX.Element => {
 
   return (
     <>
-      {state.auth.username !== "" && (
+      {state.auth.username !== "" ? (
         <>
           <h1>Hello {state.auth.username}</h1>
           <h2>Hello from dashboard</h2>
+        </>
+      ) : (
+        <>
+          <h1>you are not logged in</h1>
         </>
       )}
     </>
