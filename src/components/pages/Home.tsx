@@ -13,7 +13,6 @@ const Home: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
   return (
     <>
-      <h1>{state.auth.msg}</h1>
       <form
         className={home.desktop}
         onSubmit={(e) => {
@@ -21,6 +20,7 @@ const Home: React.FC = (): JSX.Element => {
           return dispatch(signup(username, email, password));
         }}
       >
+        <h1>{state.auth.msg}</h1>
         <h2>sign up</h2>
         <input
           type="text"

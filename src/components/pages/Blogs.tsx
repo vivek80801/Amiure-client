@@ -4,11 +4,15 @@ import { deleteBlog } from "../../actions/deleteblog";
 import { getBlogs } from "../../actions/getblogs";
 import { IState } from "../../store";
 import EditBlogs from "../layouts/EditBlogs";
+import blogs from "../../scss/components/pages/blogs.module.scss";
 
 const Blogs: React.FC = (): JSX.Element => {
   const [showEdit, setShowEdit] = React.useState(false);
   const state = useSelector((state: IState) => state);
   const dispatch = useDispatch();
+
+  const openEdit = () => setShowEdit(true);
+  const closeEdit = () => setShowEdit(false);
 
   useEffect(() => {
     if (state.auth.msg === "dashboard") {
@@ -27,14 +31,20 @@ const Blogs: React.FC = (): JSX.Element => {
         </>
       ) : (
         state.blog.map(({ id, title, discreaption }) => (
-          <div key={id}>
+          <div className={blogs.desktop} key={id}>
             <h1>{title}</h1>
             <h2>{discreaption}</h2>
-            <button onClick={() => setShowEdit(true)}>edit</button>
+            <button onClick={() => openEdit()}>edit</button>
             <button onClick={() => dispatch(deleteBlog(id))}>delete</button>
             {showEdit && (
               <>
-                <EditBlogs id={id} title={title} discreaption={discreaption} />
+                <EditBlogs
+                  id={id}
+                  openEdit={openEdit}
+                  closeEdit={closeEdit}
+                  title={title}
+                  discreaption={discreaption}
+                />
               </>
             )}
           </div>

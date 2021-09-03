@@ -1,11 +1,29 @@
 @import "../../utils/_variable.scss";
 
 .desktop {
+  position: absolute;
+  top: 20vh;
+  left: 30vw;
+  padding: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: center;
-  input {
+  flex-direction: column;
+  background-color: #333;
+  border-radius: 0.75rem;
+  input,
+  textarea {
     padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.75rem;
+    border: none;
+    outline: none;
+  }
+  input[type="submit"] {
+    cursor: pointer;
+    &:hover {
+      background-color: #252525;
+      color: #fff;
+    }
   }
 }

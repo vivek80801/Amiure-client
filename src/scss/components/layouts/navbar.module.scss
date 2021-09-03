@@ -1,6 +1,6 @@
 @import "../../utils/variable.scss";
 
-.desktop {
+%nav {
   padding: 1rem;
   color: #fff;
   display: flex;
@@ -26,5 +26,54 @@
         }
       }
     }
+  }
+  @media screen and (max-width: 950px) {
+    display: none;
+  }
+}
+
+.desktop {
+  @extend %nav;
+}
+
+.mobile {
+  @extend %nav;
+  height: 10vh;
+  position: sticky;
+  top: 0;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  .lines {
+    padding: 1rem;
+    .line {
+      margin: 1rem;
+      border-radius: 0.75rem;
+      height: 1vh;
+      width: 10vw;
+      background-color: #fff;
+    }
+  }
+  ul {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    flex-direction: column;
+    li {
+      padding: 1rem;
+      list-style: none;
+      a {
+        text-transform: capitalize;
+        text-decoration: none;
+      }
+    }
+  }
+  @media screen and (max-width: 950px) {
+    display: flex;
   }
 }

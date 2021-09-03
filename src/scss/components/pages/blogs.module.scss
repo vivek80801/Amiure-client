@@ -1,0 +1,16 @@
+@import "../../utils/_variable.scss";
+
+.desktop {
+  button {
+    padding: 1rem;
+    margin: 0.75rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 0.75rem;
+    &:hover {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+}

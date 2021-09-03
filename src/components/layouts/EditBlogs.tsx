@@ -7,6 +7,8 @@ interface IProps {
   id: string;
   title: string;
   discreaption: string;
+  openEdit: () => void;
+  closeEdit: () => void;
 }
 
 const EditBlogs: React.FC<IProps> = (props): JSX.Element => {
@@ -19,9 +21,11 @@ const EditBlogs: React.FC<IProps> = (props): JSX.Element => {
         className={editblogclass.desktop}
         onSubmit={(e) => {
           e.preventDefault();
+          props.closeEdit();
           return dispatch(editBlog(props.id, title, discreaption));
         }}
       >
+        <h1 style={{ textTransform: "capitalize" }}>edit blog</h1>
         <input
           type="text"
           value={title}
@@ -35,7 +39,7 @@ const EditBlogs: React.FC<IProps> = (props): JSX.Element => {
           placeholder="Enter discreaption"
           onChange={(e) => setDiscreaption(e.target.value)}
         ></textarea>
-        <input type="submit" value="create blog" />
+        <input type="submit" value="save blog" />
       </form>
     </>
   );
