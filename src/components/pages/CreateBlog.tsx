@@ -19,6 +19,7 @@ const CreateBlog: React.FC = (): JSX.Element => {
             return dispatch(createBlog(title, discreaption));
           }}
         >
+          <h1>create blog</h1>
           <input
             type="text"
             onChange={(e) => setTitle(e.target.value)}

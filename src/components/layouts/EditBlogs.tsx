@@ -39,6 +39,7 @@ const EditBlogs: React.FC<IProps> = (props): JSX.Element => {
           placeholder="Enter discreaption"
           onChange={(e) => setDiscreaption(e.target.value)}
         ></textarea>
+        <button onClick={() => props.closeEdit()}>close</button>
         <input type="submit" value="save blog" />
       </form>
     </>
